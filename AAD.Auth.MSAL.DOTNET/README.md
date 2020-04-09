@@ -27,16 +27,17 @@ token from the token cache. Remove the token cache file to prompt for user authe
 
 ### Azure AD App Configuration
 
-You will need to create a new Azure AD App Registration and update the sample solution to include the details of your app registration. To update the sample solution, place the values for your app registration and login user account into the **GrantTypesExamples.cs** file on lines 34-39 as shown below (leave line 40: ```string redirectUri = "http://localhost";``` as-is):
+You will need to create a new Azure AD App Registration and update the sample solution to include the details of your app registration. To update the sample solution, place the values for your app registration and login user account into the **appsettings.json** file as shown below:
 
 ```
-        string clientId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-        string clientSecret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-        string tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-        string[] scopes = { "Group.ReadWrite.All" };
-        string username = "user@domain.com";
-        string password = "xxxxxxxxxx";
-        string redirectUri = "http://localhost";
+{
+  "clientId":  "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "clientSecret":  "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "tenantId":  "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "scopes":  "https://graph.microsoft.com/.default",
+  "username": "user@domain.com",
+  "password":  "xxxxxxxxxxxxxxx"
+}
 ```
 
 When you create your Azure AD App registration make sure to set the following according the the OAuth flows you plan to use. *Not all OAuth flows use all of these values. For example, a public client will not need a clientSecret or user password.*
