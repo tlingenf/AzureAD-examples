@@ -14,6 +14,7 @@
 # the possibility of such damages.
 ##########################################################################################################*/
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -44,6 +45,7 @@ namespace AAD.Auth.MSAL.DOTNET
             Console.WriteLine("3) - Device Code Flow");
             Console.WriteLine("4) - Interactive Login");
             Console.WriteLine("5) - Refresh Token");
+            Console.WriteLine("6) - Write Token Cache");
 
             var selection = Console.ReadKey();
 
@@ -73,6 +75,11 @@ namespace AAD.Auth.MSAL.DOTNET
 
                     case '5':
                         accessToken = await example.LoginWithRefreshTokenAsync();
+                        break;
+
+                    case '6':
+                        var tokenCache = TokenCacheSerialization.GetTokenCacheValue();
+                        Console.WriteLine(JsonConvert.SerializeObject(tokenCache));
                         break;
                 }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Identity.Client;
+using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -51,6 +52,15 @@ namespace AAD.Auth.MSAL.DOTNET
                                         );
                 }
             }
+        }
+
+        public static JObject GetTokenCacheValue()
+        {
+            var strJson = System.Text.Encoding.Default.GetString(
+                ProtectedData.Unprotect(File.ReadAllBytes(CacheFilePath), null, DataProtectionScope.CurrentUser)
+            );
+
+            return JObject.Parse(strJson);
         }
     }
 }
