@@ -31,7 +31,7 @@ namespace AAD.Auth.MSAL.DOTNET
             configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
                 .AddJsonFile("appsettings.json", false)
-                .AddJsonFile("appsettings.json.user", true)
+                .AddJsonFile("appsettings.Microsoft.user", true)
                 .Build();
 
             var defaultForegroundColor = Console.ForegroundColor;
@@ -44,8 +44,9 @@ namespace AAD.Auth.MSAL.DOTNET
             Console.WriteLine("2) - Resource Owner Password Credentials");
             Console.WriteLine("3) - Device Code Flow");
             Console.WriteLine("4) - Interactive Login");
-            Console.WriteLine("5) - Refresh Token");
-            Console.WriteLine("6) - Write Token Cache");
+            Console.WriteLine("5) - Windows Integrated");
+            Console.WriteLine("6) - Refresh Token");
+            Console.WriteLine("7) - Write Token Cache");
 
             var selection = Console.ReadKey();
 
@@ -74,10 +75,14 @@ namespace AAD.Auth.MSAL.DOTNET
                         break;
 
                     case '5':
-                        accessToken = await example.LoginWithRefreshTokenAsync();
+                        accessToken = await example.IntegratedAsync();
                         break;
 
                     case '6':
+                        accessToken = await example.LoginWithRefreshTokenAsync();
+                        break;
+
+                    case '7':
                         var tokenCache = TokenCacheSerialization.GetTokenCacheValue();
                         Console.WriteLine(JsonConvert.SerializeObject(tokenCache));
                         break;

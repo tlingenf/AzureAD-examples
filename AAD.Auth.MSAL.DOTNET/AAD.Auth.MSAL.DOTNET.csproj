@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="appsettings.Microsoft.user">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="appsettings.json.user">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
