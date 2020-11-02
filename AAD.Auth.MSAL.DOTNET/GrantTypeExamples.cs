@@ -104,7 +104,7 @@ namespace AAD.Auth.MSAL.DOTNET
                 try
                 {
                     auth = await app.AcquireTokenByIntegratedWindowsAuth(scopes)
-                        .WithUsername("trlingen@microsoft.com")
+                        .WithUsername(username)
                        .ExecuteAsync();
                 }
                 catch (MsalUiRequiredException ex)
