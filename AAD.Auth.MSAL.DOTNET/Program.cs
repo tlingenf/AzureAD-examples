@@ -31,7 +31,7 @@ namespace AAD.Auth.MSAL.DOTNET
             configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
                 .AddJsonFile("appsettings.json", false)
-                .AddJsonFile("appsettings.Microsoft.user", true)
+                .AddJsonFile("appsettings.json.user", true)
                 .Build();
 
             var defaultForegroundColor = Console.ForegroundColor;
@@ -47,6 +47,7 @@ namespace AAD.Auth.MSAL.DOTNET
             Console.WriteLine("5) - Windows Integrated");
             Console.WriteLine("6) - Refresh Token");
             Console.WriteLine("7) - Write Token Cache");
+            Console.WriteLine("8) - Application Certificate");
 
             var selection = Console.ReadKey();
 
@@ -85,6 +86,10 @@ namespace AAD.Auth.MSAL.DOTNET
                     case '7':
                         var tokenCache = TokenCacheSerialization.GetTokenCacheValue();
                         Console.WriteLine(JsonConvert.SerializeObject(tokenCache));
+                        break;
+
+                    case '8':
+                        accessToken = await example.CertificateAuthAsync();
                         break;
                 }
 

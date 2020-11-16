@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace AAD.Auth.MSAL.DOTNET
@@ -39,6 +40,8 @@ namespace AAD.Auth.MSAL.DOTNET
         string username;
         string password;
         string redirectUri = "http://localhost";
+        string certificateName;
+        string certificatePass;
 
         public GrantTypeExamples(IConfigurationRoot configuration)
         {
@@ -48,6 +51,8 @@ namespace AAD.Auth.MSAL.DOTNET
             scopes = configuration["scopes"].Split(new char[] { ' ', ',', ';' });
             username = configuration["username"];
             password = configuration["password"];
+            certificateName = configuration["certificateFile"];
+            certificatePass = configuration["certificatePassword"];
         }
 
         public async Task<string> ClientCredentialsAsync()
@@ -157,6 +162,7 @@ namespace AAD.Auth.MSAL.DOTNET
             return auth.AccessToken;
         }
 
+
         public async Task<string> DeviceCodeAsync()
         {
             IPublicClientApplication app = PublicClientApplicationBuilder
@@ -184,6 +190,22 @@ namespace AAD.Auth.MSAL.DOTNET
                 .Build();
 
             AuthenticationResult auth = await app.AcquireTokenInteractive(scopes)
+                .ExecuteAsync();
+
+            return auth.AccessToken;
+        }
+
+        public async Task<string> CertificateAuthAsync()
+        {
+            var cert = new X509Certificate2(this.certificateName, this.certificatePass, X509KeyStorageFlags.EphemeralKeySet);
+
+            IConfidentialClientApplication app = ConfidentialClientApplicationBuilder
+                .Create(clientId)
+                .WithCertificate(cert)
+                .WithTenantId(tenantId)
+                .Build();
+
+            AuthenticationResult auth = await app.AcquireTokenForClient(scopes)
                 .ExecuteAsync();
 
             return auth.AccessToken;
