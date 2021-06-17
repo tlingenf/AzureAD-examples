@@ -1,7 +1,7 @@
 *.dll
 *.pdb
-obj/**
-bin/**
+*/obj/**
+*/bin/**
 runtimes/**
 *.user
 *.PublishSettings
