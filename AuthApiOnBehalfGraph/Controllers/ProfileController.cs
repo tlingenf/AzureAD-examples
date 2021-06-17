@@ -23,10 +23,10 @@ namespace trlingensecwebapi.Controllers
         }
 
         [HttpGet]
-        public async Task<string> GetUpn()
+        public async Task<User> GetUpn()
         {
             var currentUser = await _graphClient.GetUserProfileAsync();
-            return currentUser.UserPrincipalName;
+            return currentUser;
         }
     }
 }

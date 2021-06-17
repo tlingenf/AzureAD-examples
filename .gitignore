@@ -8,3 +8,6 @@ runtimes/**
 publish.cmd
 packages/
 .vs/
+*.pubxml
+*.arm.json
+*/.config/**
