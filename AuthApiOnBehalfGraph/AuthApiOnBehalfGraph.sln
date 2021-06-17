@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31409.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trlingen-secwebapi", "trlingen-secwebapi.csproj", "{B10CD64E-B04F-465C-A204-30EAD9236D93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApiOnBehalfGraph", "AuthApiOnBehalfGraph.csproj", "{01C038D4-7B97-4D37-A4C0-8165825B0E62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B10CD64E-B04F-465C-A204-30EAD9236D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B10CD64E-B04F-465C-A204-30EAD9236D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B10CD64E-B04F-465C-A204-30EAD9236D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B10CD64E-B04F-465C-A204-30EAD9236D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01C038D4-7B97-4D37-A4C0-8165825B0E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C038D4-7B97-4D37-A4C0-8165825B0E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C038D4-7B97-4D37-A4C0-8165825B0E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C038D4-7B97-4D37-A4C0-8165825B0E62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

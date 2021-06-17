@@ -1,1 +1,12 @@
+*.dll
+*.pdb
+obj/**
+bin/**
+runtimes/**
 *.user
+*.PublishSettings
+publish.cmd
+packages/
+.vs/
+/AuthApiOnBehalfGraph/bin/Debug/netcoreapp3.1
+/AuthApiOnBehalfGraph/obj/Debug/netcoreapp3.1
