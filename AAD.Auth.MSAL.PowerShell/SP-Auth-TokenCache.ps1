@@ -2,7 +2,7 @@ Import-Module MSAL.PS
 Import-Module PnP.PowerShell
 
 # read app configuration from file
-$environmentConfigFile = "M365x731247.json.user"
+$environmentConfigFile = "Environment.json"
 $config = Get-Content -Path $environmentConfigFile | ConvertFrom-Json
 
 # create a client application and enable the token cache
