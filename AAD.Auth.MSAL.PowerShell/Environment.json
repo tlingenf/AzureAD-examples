@@ -1,8 +1,8 @@
 {
-    "clientId": "",
+    "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "client_secret": "",
     "scopes": [""],
-    "tenantId": "",
-    "redirectUri": "",
+    "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "redirectUri": "https://login.microsoftonline.com/common/oauth2/nativeclient",
     "sharePointSite": ""
 }
